@@ -7,9 +7,9 @@ namespace BEDuo
     public class BEDuoDbContext : DbContext
     {
         public DbSet<User> Users { get; set; }
-        public DbSet<Schedule> Products { get; set; }
-        public DbSet<Classes> Orders { get; set; }
-        public DbSet<Notes> PaymentTypes { get; set; }
+        public DbSet<Schedule> Schedules { get; set; }
+        public DbSet<Classes> Classes { get; set; }
+        public DbSet<Notes> Notes { get; set; }
 
         public BEDuoDbContext(DbContextOptions<BEDuoDbContext> options) : base(options)
         {
