@@ -30,6 +30,56 @@ namespace BEDuo.APIs
                 return Results.Ok(user);
             });
 
+            app.MapPost("/register", (BEDuoDbContext db, User user) =>
+            {
+                db.Users.Add(user);
+                db.SaveChanges();
+                return Results.Created($"/user/{user.Id}", user);
+            });
+
+            app.MapPatch("/users/{id}/edit", (BEDuoDbContext db, int id, User editedUser) =>
+            {
+                User userToEdit = db.Users.FirstOrDefault(u => u.Id == id);
+                if (userToEdit == null)
+                {
+                    return Results.NotFound();
+                }
+
+                if (editedUser.Id != 0)
+                { 
+                    userToEdit.Id = editedUser.Id;
+                };
+
+                if (editedUser.Username != null)
+                {
+                    userToEdit.Username = editedUser.Username;
+                };
+
+                if (editedUser.UserImageURL != null)
+                {
+                    userToEdit.UserImageURL = editedUser.UserImageURL;
+                };
+
+                if (editedUser.University != null)
+                {
+                    userToEdit.University = editedUser.University;
+                };
+
+                if (editedUser.Uid != null)
+                {
+                    userToEdit.Uid = editedUser.Uid;
+                };
+
+                if (editedUser.Bio != null)
+                {
+                    userToEdit.Bio = editedUser.Bio;
+                };
+
+                db.SaveChanges();
+
+                return Results.Ok(userToEdit);
+            });
+
         }
     }
 }
