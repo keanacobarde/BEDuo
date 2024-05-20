@@ -14,7 +14,7 @@ namespace BEDuo.Data
                 StartDate = new DateTime(2024, 9, 1, 9, 0, 0),
                 EndDate = new DateTime(2025, 5, 31, 10, 0, 0),
                 isPublic = true,
-                UserId = 1001
+                UserId = 1
             },
             new Classes
             {
@@ -24,7 +24,7 @@ namespace BEDuo.Data
                 StartDate = new DateTime(2024, 9, 1, 11, 0, 0),
                 EndDate = new DateTime(2025, 5, 31, 12, 30, 0),
                 isPublic = true,
-                UserId = 1002
+                UserId = 1
             },
             new Classes
             {
@@ -34,7 +34,7 @@ namespace BEDuo.Data
                 StartDate = new DateTime(2024, 9, 1, 14, 0, 0),
                 EndDate = new DateTime(2025, 5, 31, 15, 30, 0),
                 isPublic = true,
-                UserId = 1003
+                UserId = 2
             },
             new Classes
             {
@@ -44,7 +44,7 @@ namespace BEDuo.Data
                 StartDate = new DateTime(2024, 9, 1, 16, 0, 0),
                 EndDate = new DateTime(2025, 5, 31, 17, 30, 0),
                 isPublic = true,
-                UserId = 1004
+                UserId = 2
             },
             new Classes
             {
@@ -54,7 +54,7 @@ namespace BEDuo.Data
                 StartDate = new DateTime(2024, 9, 1, 18, 0, 0),
                 EndDate = new DateTime(2024, 12, 15, 19, 30, 0),
                 isPublic = true,
-                UserId = 1005
+                UserId = 1
             },
             new Classes
             {
@@ -64,7 +64,7 @@ namespace BEDuo.Data
                 StartDate = new DateTime(2024, 10, 1, 10, 0, 0),
                 EndDate = new DateTime(2024, 12, 15, 11, 30, 0),
                 isPublic = true,
-                UserId = 1006
+                UserId = 1
             }
         };
     }
