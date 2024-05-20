@@ -14,6 +14,7 @@ namespace BEDuo.Data
                 StartDate = new DateTime(2024, 9, 1, 9, 0, 0),
                 EndDate = new DateTime(2025, 5, 31, 10, 0, 0),
                 isPublic = true,
+                University="Western Governor's University",
                 UserId = 1
             },
             new Classes
@@ -24,6 +25,7 @@ namespace BEDuo.Data
                 StartDate = new DateTime(2024, 9, 1, 11, 0, 0),
                 EndDate = new DateTime(2025, 5, 31, 12, 30, 0),
                 isPublic = true,
+                University="Western Governor's University",
                 UserId = 1
             },
             new Classes
@@ -34,6 +36,7 @@ namespace BEDuo.Data
                 StartDate = new DateTime(2024, 9, 1, 14, 0, 0),
                 EndDate = new DateTime(2025, 5, 31, 15, 30, 0),
                 isPublic = true,
+                University="Western Governor's University",
                 UserId = 2
             },
             new Classes
