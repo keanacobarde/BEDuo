@@ -77,6 +77,7 @@ namespace BEDuo.APIs
                     {
                         classToEdit.UserId = editedClass.UserId;
                     };
+                    return Results.Ok(classToEdit);
 
                 }
                 catch
