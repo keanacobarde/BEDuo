@@ -20,6 +20,18 @@ namespace BEDuo.APIs
                     return Results.NotFound();
                 }
             });
+
+            app.MapGet("/schedule/{id}", (BEDuoDbContext db, int scheduleId) => {
+                try
+                {
+                    var scheduleDetails = db.Schedules.FirstOrDefault(s => s.Id == scheduleId);
+                    return Results.Ok(scheduleDetails);
+                }
+                catch
+                {
+                    return Results.NotFound();
+                }
+            });
         }
     }
 }
