@@ -32,6 +32,19 @@ namespace BEDuo.APIs
                     return Results.NotFound();
                 }
             });
+
+            app.MapDelete("/schedules/{scheduleId}", (BEDuoDbContext db, int scheduleId) =>
+            {
+                Schedule scheduleToDelete = db.Schedules.FirstOrDefault(c => c.Id == scheduleId);
+                if (scheduleToDelete == null)
+                {
+                    return Results.NotFound();
+                }
+                db.Schedules.Remove(scheduleToDelete);
+                db.SaveChanges();
+                return Results.Ok(db.Schedules);
+            });
+
         }
     }
 }
