@@ -8,6 +8,6 @@
         public DateTime EndDate { get; set; }
         public int UserID { get; set; }
         public bool IsPublic { get; set; }
-        public ICollection<Classes>? Classes { get; set; } 
+        public ICollection<Classes> Classes { get; set; } 
     }
 }

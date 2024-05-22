@@ -6,7 +6,7 @@ namespace BEDuo.APIs
     {
         public static void Map(WebApplication app)
         {
-            app.MapGet("/classes/{user}", (BEDuoDbContext db, int userId) =>
+            app.MapGet("/classes/{userId}", (BEDuoDbContext db, int userId) =>
             {
                 try
                 {
