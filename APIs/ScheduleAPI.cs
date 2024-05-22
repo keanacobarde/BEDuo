@@ -1,11 +1,25 @@
-﻿using BEDuo.Models;
+﻿using Microsoft.EntityFrameworkCore;
+using BEDuo.Models;
 
 namespace BEDuo.APIs;
     public class ScheduleAPI
     {
         public static void Map(WebApplication app)
         {
-            app.MapGet("/schedule/{user}", (BEDuoDbContext db, int userId) =>
+            app.MapPost("/schedule", (BEDuoDbContext db, Schedule scheduleToAdd) => 
+            {
+                try
+                {
+                    db.Schedules.Add(scheduleToAdd);
+                    return Results.Ok();
+                }
+                catch
+                { 
+                    return Results.NotFound();
+                }
+            });
+
+            app.MapGet("/schedule/user/{userId}", (BEDuoDbContext db, int userId) =>
             {
                 try
                 {
@@ -20,10 +34,17 @@ namespace BEDuo.APIs;
                 }
             });
 
-            app.MapGet("/schedule/{id}", (BEDuoDbContext db, int scheduleId) => {
+            app.MapGet("/schedule/public", (BEDuoDbContext db) => 
+            {
+                return db.Schedules.Where(s => s.IsPublic);
+            });
+
+            app.MapGet("/schedule/{id}", (BEDuoDbContext db, int id) => {
                 try
                 {
-                    var scheduleDetails = db.Schedules.FirstOrDefault(s => s.Id == scheduleId);
+                    Schedule scheduleDetails = db.Schedules
+                    .Include(s => s.Classes)
+                    .FirstOrDefault(s => s.Id == id);
                     return Results.Ok(scheduleDetails);
                 }
                 catch
@@ -78,7 +99,7 @@ namespace BEDuo.APIs;
                 }
             });
 
-            app.MapDelete("/schedules/{scheduleId}", (BEDuoDbContext db, int scheduleId) =>
+            app.MapDelete("/schedule/{scheduleId}", (BEDuoDbContext db, int scheduleId) =>
             {
                 Schedule scheduleToDelete = db.Schedules.FirstOrDefault(c => c.Id == scheduleId);
                 if (scheduleToDelete == null)

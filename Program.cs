@@ -50,5 +50,6 @@ ScheduleAPI.Map(app);
 ClassesAPI.Map(app);
 NoteAPI.Map(app);
 UserAPI.Map(app);
+ClassSchedulesAPI.Map(app);
 
 app.Run();

@@ -10,6 +10,6 @@
         public bool isPublic { get; set; }
         public int UserId { get; set; }
         public string? University { get; set; }
-        public ICollection<Schedule>? Schedules { get; set; }
+        public ICollection<Schedule> Schedules { get; set; }
     }
 }
